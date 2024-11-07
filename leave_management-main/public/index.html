@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Leave Management System</h1>
+
+        <!-- Login Section -->
+        <div id="login-section" class="form-section">
+            <h2>Login</h2>
+            <form id="login-form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <p>Don't have an account? <button id="show-registration" class="link-btn">Create User</button></p>
+        </div>
+
+        <!-- Registration Section -->
+        <div id="registration-section" class="form-section" style="display: none;">
+            <h2>Create User</h2>
+            <form id="registration-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" required>
+
+                <label for="reg-email">Email:</label>
+                <input type="email" id="reg-email" required>
+
+                <label for="roll-number">Roll Number:</label>
+                <input type="text" id="roll-number" required>
+
+                <label for="casual-leave">Initial Casual Leave:</label>
+                <input type="number" id="casual-leave" value="0" required>
+
+                <label for="medical-leave">Initial Medical Leave:</label>
+                <input type="number" id="medical-leave" value="0" required>
+
+                <button type="submit" class="btn">Register</button>
+            </form>
+            <p>Already have an account? <button id="show-login" class="link-btn">Login</button></p>
+            <div id="registration-response"></div>
+        </div>
+
+        <!-- Leave Balance Section (Hidden until login) -->
+        <div class="balance-section" id="balance-section" style="display: none;">
+            <h2>Leave Balance</h2>
+            <p>Welcome, <span id="username-display"></span> (Roll Number: <span id="roll-number-display"></span>)</p>
+            <div id="leave-balance">
+                <p>Casual Leave: <span id="casual-leave-display">Loading...</span></p>
+                <p>Medical Leave: <span id="medical-leave-display">Loading...</span></p>
+            </div>
+            <button id="refresh-balance" class="btn">Refresh Balance</button>
+            <button id="logout-button" class="btn" style="display: none;">Logout</button>
+        </div>
+
+        <!-- Apply for Leave Section (Hidden until login) -->
+        <div class="apply-leave-section" id="apply-leave-section" style="display: none;">
+            <h2>Apply for Leave</h2>
+            <form id="leave-form">
+                <label for="leave-type">Leave Type:</label>
+                <select id="leave-type">
+                    <option value="casual">Casual</option>
+                    <option value="medical">Medical</option>
+                </select>
+
+                <label for="leave-days">Number of Days:</label>
+                <input type="number" id="leave-days" min="1" required>
+
+                <button type="submit" class="btn">Apply Leave</button>
+            </form>
+        </div>
+
+        <div id="response-message"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
